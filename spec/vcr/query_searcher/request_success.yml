@@ -14,22 +14,24 @@ http_interactions:
       code: 200
       message: OK
     headers:
+      accept-ranges:
+      - bytes
       age:
-      - '370345'
+      - '428590'
       cache-control:
       - max-age=604800
       content-type:
       - text/html; charset=UTF-8
       date:
-      - Sat, 14 Aug 2021 14:53:19 GMT
+      - Sat, 14 Aug 2021 15:07:02 GMT
       etag:
-      - '"3147526947+gzip"'
+      - '"3147526947"'
       expires:
-      - Sat, 21 Aug 2021 14:53:19 GMT
+      - Sat, 21 Aug 2021 15:07:02 GMT
       last-modified:
       - Thu, 17 Oct 2019 07:18:26 GMT
       server:
-      - ECS (mic/9A9C)
+      - ECS (mic/9A89)
       vary:
       - Accept-Encoding
       x-cache:
@@ -55,5 +57,5 @@ http_interactions:
         use this\n    domain in literature without prior coordination or asking for
         permission.</p>\n    <p><a href=\"https://www.iana.org/domains/example\">More
         information...</a></p>\n</div>\n</body>\n</html>\n"
-  recorded_at: Sat, 14 Aug 2021 14:53:20 GMT
+  recorded_at: Sat, 14 Aug 2021 15:07:02 GMT
 recorded_with: VCR 6.0.0

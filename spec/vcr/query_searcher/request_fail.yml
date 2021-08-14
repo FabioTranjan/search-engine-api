@@ -1,0 +1,45 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://example.com/
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.7.0
+  response:
+    status:
+      code: 500
+      message: Internal Server Error
+    headers:
+      accept-ranges:
+      - bytes
+      age:
+      - '428590'
+      cache-control:
+      - max-age=604800
+      content-type:
+      - text/html; charset=UTF-8
+      date:
+      - Sat, 14 Aug 2021 15:07:02 GMT
+      etag:
+      - '"3147526947"'
+      expires:
+      - Sat, 21 Aug 2021 15:07:02 GMT
+      last-modified:
+      - Thu, 17 Oct 2019 07:18:26 GMT
+      server:
+      - ECS (mic/9A89)
+      vary:
+      - Accept-Encoding
+      x-cache:
+      - HIT
+      content-length:
+      - '648'
+    body:
+      encoding: ASCII-8BIT
+      string: "Internal Server Error"
+  recorded_at: Sat, 14 Aug 2021 15:07:02 GMT
+recorded_with: VCR 6.0.0

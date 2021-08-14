@@ -20,15 +20,19 @@ describe QuerySearcher do
     context "when a valid url is provided" do
       let(:url) { 'https://example.com/' }
 
-      it 'runs the request successfully' do
-        VCR.use_cassette('query_searcher/request') do
-          expect(request.status).to eq 200
+      it 'returns valid body data' do
+        VCR.use_cassette('query_searcher/request_success') do
+          expect(request).to include '<title>Example Domain</title>'
         end
       end
+    end
 
-      it 'returns valid body data' do
-        VCR.use_cassette('query_searcher/request') do
-          expect(request.body).to include '<title>Example Domain</title>'
+    context "when an invalid url is provided" do
+      let(:url) { 'https://example.com/' }
+
+      it 'raises a request exception' do
+        VCR.use_cassette('query_searcher/request_fail') do
+          expect{ request }.to raise_error(StandardError, 'Internal Server Error')
         end
       end
     end

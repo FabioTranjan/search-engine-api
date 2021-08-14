@@ -15,6 +15,9 @@ class QuerySearcher
   end
 
   def request(url)
-    Faraday.get url
+    response = Faraday.get(url)
+    raise StandardError.new(response.body) if response.status != 200
+
+    response.body
   end
 end
