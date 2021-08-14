@@ -5,7 +5,13 @@ class QuerySearcher
   def initialize
   end
 
-  def call(engines, query)
+  def call(engine, query)
+    case engine
+    when :google
+      search_at_google(query)
+    when :bing
+      search_at_bing(query)
+    end
   end
 
   def search_at_google(query)

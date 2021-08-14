@@ -4,12 +4,25 @@ describe QuerySearcher do
   let(:query_searcher) { described_class.new }
 
   describe "#call" do
-    context "when valid engines and text are provided" do
-      let(:text) { 'test' }
-      let(:engines) { ['google', 'bing'] }
+    let(:query) { 'test' }
 
-      it 'searches data for each corresponding engine' do
-        expect(true).to be_truthy
+    context "when google search engine is called" do
+      subject(:call) { query_searcher.call(:google, query) }
+
+      it 'calls search at google engine and returns html data' do
+        VCR.use_cassette('query_searcher/request_google_success') do
+          expect(call).to include '<title>test - Pesquisa Google</title>'
+        end
+      end
+    end
+
+    context "when bing search engine is called" do
+      subject(:call) { query_searcher.call(:bing, query) }
+
+      it 'returns bing engine html data' do
+        VCR.use_cassette('query_searcher/request_bing_success') do
+          expect(call).to include '<title>test - Bing</title>'
+        end
       end
     end
   end
