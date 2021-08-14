@@ -1,0 +1,44 @@
+---
+name: CI
+on: [push, pull_request]
+env:
+  RAILS_ENV: test
+  CI: true
+
+jobs:
+  lint:
+    name: Rubocop
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.5.9
+      - name: Install Rubocop
+        run: |
+          gem install bundler --no-document
+          bundle install
+      - name: Check code
+        run: bundle exec rubocop
+
+  test:
+    name: RSpec
+    needs: lint
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.5.9
+      - name: Install dependencies
+        env:
+          RAILS_ENV: test
+        run: |
+          gem install bundler
+          bundle install
+      - name: Run tests
+        env:
+          REDIS_PORT: ${{ job.services.redis.ports[6379] }}
+          REDIS_URL: localhost
+        run: rspec
