@@ -3,6 +3,6 @@ class SearchController < ApplicationController
   end
 
   def search_params
-    params.permit(:engines, :text)
+    params.permit(:engines, :query)
   end
 end
