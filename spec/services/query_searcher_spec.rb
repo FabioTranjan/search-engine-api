@@ -21,11 +21,15 @@ describe QuerySearcher do
       let(:url) { 'https://example.com/' }
 
       it 'runs the request successfully' do
-        expect(request.status).to eq 200
+        VCR.use_cassette('query_searcher/request') do
+          expect(request.status).to eq 200
+        end
       end
 
       it 'returns valid body data' do
-        expect(request.body).to include '<title>Example Domain</title>'
+        VCR.use_cassette('query_searcher/request') do
+          expect(request.body).to include '<title>Example Domain</title>'
+        end
       end
     end
   end
