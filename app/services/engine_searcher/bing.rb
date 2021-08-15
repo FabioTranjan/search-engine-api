@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-module QuerySearcher
-  # Bing Query Searcher class
+module EngineSearcher
+  # Engine Query Searcher class
   class Bing < Base
     BING_SEARCH_URL = 'https://www.bing.com/search'
 

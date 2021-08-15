@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-module QuerySearcher
-  # Query Search class
+module EngineSearcher
+  # Engine Search class
   class Base
     def call(engine, query)
       case engine
