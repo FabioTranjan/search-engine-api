@@ -29,10 +29,10 @@ describe QuerySearcher do
       end
 
       context 'when an invalid search engine is provided' do
-        let(:engines) { ['wrong'] }
+        let(:engines) { ['yahoo'] }
 
         it 'returns nothing' do
-          expect { search }.to raise_error(NameError, 'uninitialized constant EngineSearcher::Wrong')
+          expect { search }.to raise_error(ArgumentError, 'The search engine yahoo is not implemented')
         end
       end
 

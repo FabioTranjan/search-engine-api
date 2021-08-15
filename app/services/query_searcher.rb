@@ -8,7 +8,7 @@ class QuerySearcher
     raise ArgumentError, 'Provide at least one search engine argument' unless engines.present?
 
     @engine_searchers = engines.map do |engine|
-      Object.const_get("EngineSearcher::#{engine.to_s.capitalize}").new
+      create_engine_searcher(engine)
     end
   end
 
@@ -19,5 +19,13 @@ class QuerySearcher
       html_data = engine_searcher.search(query)
       engine_searcher.parse(html_data)
     end.flatten
+  end
+
+  private
+
+  def create_engine_searcher(engine)
+    Object.const_get("EngineSearcher::#{engine.to_s.capitalize}").new
+  rescue NameError => _e
+    raise ArgumentError, "The search engine #{engine} is not implemented"
   end
 end
