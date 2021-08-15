@@ -29,34 +29,6 @@ describe QuerySearcher::Base do
     end
   end
 
-  describe '#search_at_google' do
-    subject(:search_at_google) { query_searcher.search_at_google(query) }
-
-    context 'when a valid query is provided' do
-      let(:query) { 'test' }
-
-      it 'returns valid google data' do
-        VCR.use_cassette('query_searcher/request_google_success') do
-          expect(search_at_google).to include '<title>test - Pesquisa Google</title>'
-        end
-      end
-    end
-  end
-
-  describe '#search_at_bing' do
-    subject(:search_at_bing) { query_searcher.search_at_bing(query) }
-
-    context 'when a valid query is provided' do
-      let(:query) { 'test' }
-
-      it 'returns valid bing data' do
-        VCR.use_cassette('query_searcher/request_bing_success') do
-          expect(search_at_bing).to include '<title>test - Bing</title>'
-        end
-      end
-    end
-  end
-
   describe '#request' do
     subject(:request) { query_searcher.request(url) }
 

@@ -3,24 +3,15 @@
 # Query Search class
 module QuerySearcher
   class Base
-    GOOGLE_SEARCH_URL = 'https://www.google.com/search'
-    BING_SEARCH_URL = 'https://www.bing.com/search'
-  
     def call(engine, query)
       case engine
       when :google
-        search_at_google(query)
+        google_engine = Google.new
+        google_engine.search(query)
       when :bing
-        search_at_bing(query)
+        bing_engine = Bing.new
+        bing_engine.search(query)
       end
-    end
-  
-    def search_at_google(query)
-      request(GOOGLE_SEARCH_URL, { q: query })
-    end
-  
-    def search_at_bing(query)
-      request(BING_SEARCH_URL, { q: query })
     end
   
     def request(url, params = {})
