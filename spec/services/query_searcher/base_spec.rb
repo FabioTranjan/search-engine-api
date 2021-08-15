@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-describe QuerySearcher do
+describe QuerySearcher::Base do
   let(:query_searcher) { described_class.new }
 
   describe '#call' do
