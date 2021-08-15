@@ -5,7 +5,7 @@ module EngineSearcher
   class Base
     def request(url, params = {})
       response = Faraday.get(url, params)
-      raise RuntimeError, response.body if response.status != 200
+      raise response.body if response.status != 200
 
       response.body
     end
