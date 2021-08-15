@@ -38,7 +38,7 @@ describe QuerySearcher do
       end
 
       context 'when both google and bing search engines are provided' do
-        let(:engines) { ['google', 'bing'] }
+        let(:engines) { %w[google bing] }
 
         it 'searches the query text both on google and bing' do
           VCR.use_cassette('engine_searcher/request_google_and_bing_success') do
