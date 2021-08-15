@@ -41,14 +41,21 @@ describe EngineSearcher::Bing do
         expect(parse.count).to eq 8
       end
 
-      it 'returns parsed data' do
-        expect(parse.first).to eq(
-          {
-            engine: 'bing',
-            title: 'Speedtest by Ookla - Teste de Velocidade de Conexão da ...Explore mais',
-            link: 'https://www.speedtest.net/pt',
-            description: 'Use Speedtest em todos seus dispositivos com nossos aplicativos gratuitos para celular e computador.'
-          }
+      it 'returns parsed engine' do
+        expect(parse.first[:engine]).to eq('bing')
+      end
+
+      it 'returns parsed title' do
+        expect(parse.first[:title]).to eq('Speedtest by Ookla - Teste de Velocidade de Conexão da ...Explore mais')
+      end
+
+      it 'returns parsed link' do
+        expect(parse.first[:link]).to eq('https://www.speedtest.net/pt')
+      end
+
+      it 'returns parsed description' do
+        expect(parse.first[:description]).to eq(
+          'Use Speedtest em todos seus dispositivos com nossos aplicativos gratuitos para celular e computador.'
         )
       end
     end

@@ -13,13 +13,17 @@ module EngineSearcher
       parsed_page = Nokogiri::HTML(html_data)
       results = parsed_page.css('li.b_algo')
       results.map do |result|
-        {
-          engine: 'bing',
-          title: result.css('h2').text,
-          link: result.css('div.b_attribution').text,
-          description: result.css('p').text
-        }
+        parse_result(result)
       end
+    end
+
+    def parse_result(result)
+      {
+        engine: 'bing',
+        title: result.css('h2').text,
+        link: result.css('div.b_attribution').text,
+        description: result.css('p').text
+      }
     end
   end
 end

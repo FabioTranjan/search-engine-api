@@ -34,8 +34,8 @@ RSpec.describe SearchController, type: :request do
             'engine' => 'google',
             'title' => 'Speed Test',
             'link' => 'https://google.com/url?q=https://www.speedtest.net/pt&sa=U&ved=2ahUKEwif3bvl_rHyAhUPHbkGHd0FAnAQFnoECAoQAQ&usg=AOvVaw1OiD0Vf0hrsEiXSZCA4QET',
-            'description' => 'Use Speedtest em todos seus dispositivos com nossos aplicativos gratuitos para celular e '\
-                             'computador.\nSpeedtest para Android · Speedtest para Windows · Aplicativos Speedtest'
+            'description' => "Use Speedtest em todos seus dispositivos com nossos aplicativos gratuitos para celular e "\
+                             "computador.\nSpeedtest para Android · Speedtest para Windows · Aplicativos Speedtest"
           }
         )
       end

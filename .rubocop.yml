@@ -11,6 +11,11 @@ Metrics/BlockLength:
     - 'spec/**/*'
     - 'Guardfile'
 
+Style/StringLiterals:
+  Exclude:
+    - 'spec/**/*'
+    - 'Guardfile'
+
 RSpec/NestedGroups:
   Max: 6
 
