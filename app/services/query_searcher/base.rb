@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-# Query Search class
 module QuerySearcher
+  # Query Search class
   class Base
     def call(engine, query)
       case engine
@@ -13,11 +13,11 @@ module QuerySearcher
         bing_engine.search(query)
       end
     end
-  
+
     def request(url, params = {})
       response = Faraday.get(url, params)
       raise StandardError, response.body if response.status != 200
-  
+
       response.body
     end
   end

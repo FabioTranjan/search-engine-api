@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-# Query Search class
 module QuerySearcher
+  # Google Query Searcher class
   class Google < Base
     GOOGLE_SEARCH_URL = 'https://www.google.com/search'
 
