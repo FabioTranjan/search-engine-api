@@ -8,5 +8,8 @@ module EngineSearcher
     def search(query)
       request(BING_SEARCH_URL, { q: query })
     end
+
+    def parse(data)
+    end
   end
 end
