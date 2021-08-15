@@ -22,13 +22,13 @@ describe EngineSearcher::Google do
   describe '#parse' do
     subject(:parse) { engine_searcher.parse(html_data) }
 
-    # context 'when invalid html data is provided' do
-    #   let(:html_data) { nil }
+    context 'when invalid html data is provided' do
+      let(:html_data) { nil }
 
-    #   it 'returns nothing' do
-    #     expect(parse.count).to eq 0
-    #   end
-    # end
+      it 'returns nothing' do
+        expect(parse.count).to eq 0
+      end
+    end
 
     context 'when valid html data is provided' do
       let(:html_data) do

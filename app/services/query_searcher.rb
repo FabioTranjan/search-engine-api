@@ -11,8 +11,9 @@ class QuerySearcher
   end
 
   def search(query)
-    @responses = @engine_searchers.map do |engine_searcher|
-      engine_searcher.search(query)
-    end
+    @engine_searchers.map do |engine_searcher|
+      html_data = engine_searcher.search(query)
+      engine_searcher.parse(html_data)
+    end.flatten
   end
 end
