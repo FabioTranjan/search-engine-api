@@ -42,12 +42,14 @@ describe EngineSearcher::Bing do
       end
 
       it 'returns parsed data' do
-        expect(parse.first).to eq({
-          engine: 'bing',
-          title: 'Speedtest by Ookla - Teste de Velocidade de Conexão da ...Explore mais',
-          link: 'https://www.speedtest.net/pt',
-          description: 'Use Speedtest em todos seus dispositivos com nossos aplicativos gratuitos para celular e computador.'
-        }) 
+        expect(parse.first).to eq(
+          {
+            engine: 'bing',
+            title: 'Speedtest by Ookla - Teste de Velocidade de Conexão da ...Explore mais',
+            link: 'https://www.speedtest.net/pt',
+            description: 'Use Speedtest em todos seus dispositivos com nossos aplicativos gratuitos para celular e computador.'
+          }
+        )
       end
     end
   end

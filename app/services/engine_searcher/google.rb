@@ -14,13 +14,18 @@ module EngineSearcher
       results = parsed_page.css('div.xpd')
       results.map do |result|
         next unless result.css('h3').present?
-        {
-          engine: 'google',
-          title: result.css('h3').text.force_encoding("ISO-8859-1").encode("UTF-8"),
-          link: "https://google.com#{result.css('a').first['href']}",
-          description: result.css('a').first.parent.next.next.text.force_encoding("ISO-8859-1").encode("UTF-8")
-        }
+
+        parse_result(result)
       end.compact
+    end
+
+    def parse_result(result)
+      {
+        engine: 'google',
+        title: result.css('h3').text.force_encoding('ISO-8859-1').encode('UTF-8'),
+        link: "https://google.com#{result.css('a').first['href']}",
+        description: result.css('a').first.parent.next.next.text.force_encoding('ISO-8859-1').encode('UTF-8')
+      }
     end
   end
 end

@@ -42,12 +42,16 @@ describe EngineSearcher::Google do
       end
 
       it 'returns parsed data' do
-        expect(parse.first).to eq({
-          engine: 'google',
-          title: "Speedtest by Ookla - Teste de Velocidade de Conex\xE3o da Internet",
-          link: 'https://google.com/url?q=https://www.speedtest.net/pt&sa=U&ved=2ahUKEwit8bjdwbHyAhUOI7kGHQ6fCMMQFnoECAMQAQ&usg=AOvVaw2VAwO9-AHG3jaiwGr8h6aD',
-          description: "Conta. Hist\xF3rico de Resultados \xB7 Configura\xE7\xF5es \xB7 Ajuda \xB7 Criar Conta \xB7 Single Connection Test \xB7 Enterprise \xB7 Ookla\xAE Solutions \xB7 Partnerships & Programs\xA0...\nSpeedtest para Android \xB7 Speedtest para Windows \xB7 Aplicativos Speedtest"
-        }) 
+        expect(parse.first).to eq(
+          {
+            engine: 'google',
+            title: "Speedtest by Ookla - Teste de Velocidade de Conex\xE3o da Internet",
+            link: 'https://google.com/url?q=https://www.speedtest.net/pt&sa=U&ved=2ahUKEwit8bjdwbHyAhUOI7kGHQ6fCMMQFnoECAMQAQ&usg=AOvVaw2VAwO9-AHG3jaiwGr8h6aD',
+            description: 'Conta. Hist\xF3rico de Resultados \xB7 Configura\xE7\xF5es \xB7 Ajuda \xB7 Criar Conta \xB7 '\
+                         'Single Connection Test \xB7 Enterprise \xB7 Ookla\xAE Solutions \xB7 Partnerships & Programs'\
+                         '\xA0...\nSpeedtest para Android \xB7 Speedtest para Windows \xB7 Aplicativos Speedtest'
+          }
+        )
       end
     end
   end
