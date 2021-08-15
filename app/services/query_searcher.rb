@@ -1,9 +1,9 @@
-class QuerySearcher
-  GOOGLE_SEARCH_URL= 'https://www.google.com/search'
-  BING_SEARCH_URL= 'https://www.bing.com/search'
+# frozen_string_literal: true
 
-  def initialize
-  end
+# Query Search class
+class QuerySearcher
+  GOOGLE_SEARCH_URL = 'https://www.google.com/search'
+  BING_SEARCH_URL = 'https://www.bing.com/search'
 
   def call(engine, query)
     case engine
@@ -24,7 +24,7 @@ class QuerySearcher
 
   def request(url, params = {})
     response = Faraday.get(url, params)
-    raise StandardError.new(response.body) if response.status != 200
+    raise StandardError, response.body if response.status != 200
 
     response.body
   end

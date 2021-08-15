@@ -1,0 +1,43 @@
+require: rubocop-rspec
+AllCops:
+  NewCops: enable
+  Exclude:
+    - 'db/schema.rb'
+    - 'vendor/**/*'
+    - 'bin/*'
+
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*'
+    - 'Guardfile'
+
+RSpec/NestedGroups:
+  Max: 6
+
+RSpec/Focus:
+  AutoCorrect: true
+
+Lint/UnderscorePrefixedVariableName:
+  Enabled: false
+  AutoCorrect: false
+
+RSpec/ExampleLength:
+  Max: 20
+
+RSpec/MultipleExpectations:
+  Max: 2
+
+Layout/TrailingWhitespace:
+  Description: 'Avoid trailing whitespace.'
+  StyleGuide: '#no-trailing-whitespace'
+  Enabled: true
+  VersionAdded: '0.49'
+  VersionChanged: '0.55'
+  AllowInHeredoc: false
+
+Layout/LineLength:
+  Max: 130
+  
+Style/Documentation:
+  Exclude: 
+    - 'db/**/*'
