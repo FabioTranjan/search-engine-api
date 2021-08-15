@@ -9,7 +9,15 @@ module EngineSearcher
       request(GOOGLE_SEARCH_URL, { q: query })
     end
 
-    def parse(data)
+    def parse(html_data)
+      parsed_page = Nokogiri::HTML(html_data)
+      results = parsed_page.css('div.xpd')
+      results.map do |result|
+        next unless result.css('h3')
+        {
+          engine: 'google',
+        }
+      end
     end
   end
 end

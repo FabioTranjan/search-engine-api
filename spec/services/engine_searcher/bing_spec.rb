@@ -22,7 +22,7 @@ describe EngineSearcher::Bing do
   describe '#parse' do
     subject(:parse) { engine_searcher.parse(html_data) }
 
-    context 'when an invalid html data is provided' do
+    context 'when invalid html data is provided' do
       let(:html_data) { nil }
 
       it 'returns nothing' do
@@ -30,7 +30,7 @@ describe EngineSearcher::Bing do
       end
     end
 
-    context 'when a valid html data is provided' do
+    context 'when valid html data is provided' do
       let(:html_data) do
         VCR.use_cassette('engine_searcher/request_bing_success') do
           Faraday.get('https://www.bing.com/search?q=test').body
