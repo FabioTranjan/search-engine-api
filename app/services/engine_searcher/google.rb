@@ -13,11 +13,14 @@ module EngineSearcher
       parsed_page = Nokogiri::HTML(html_data)
       results = parsed_page.css('div.xpd')
       results.map do |result|
-        next unless result.css('h3')
+        next unless result.css('h3').present?
         {
           engine: 'google',
+          title: result.css('h3').text,
+          link: "https://google.com#{result.css('a').first['href']}",
+          description: result.css('a').first.parent.next.next.text
         }
-      end
+      end.compact
     end
   end
 end
