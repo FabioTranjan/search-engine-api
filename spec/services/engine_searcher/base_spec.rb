@@ -23,7 +23,7 @@ describe EngineSearcher::Base do
 
       it 'raises a request exception' do
         VCR.use_cassette('engine_searcher/request_fail') do
-          expect { request }.to raise_error(StandardError, 'Internal Server Error')
+          expect { request }.to raise_error(RuntimeError, 'Internal Server Error')
         end
       end
     end

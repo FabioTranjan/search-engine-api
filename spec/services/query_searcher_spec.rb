@@ -6,7 +6,16 @@ describe QuerySearcher do
   let(:query_searcher) { described_class.new(engines) }
 
   describe '#search' do
-    subject(:search) { query_searcher.search('test') }
+    subject(:search) { query_searcher.search(query) }
+
+    context 'when an invalid query text is provided' do
+      let(:query) { nil }
+      let(:engines) { ['google'] }
+
+      it 'raises an Argument Error' do
+        expect { search }.to raise_error(ArgumentError, 'Provide a valid query text')
+      end
+    end
 
     context 'when a valid query text is provided' do
       let(:query) { 'test' }
@@ -14,8 +23,8 @@ describe QuerySearcher do
       context 'when no search engine is provided' do
         let(:engines) { [] }
 
-        it 'returns nothing' do
-          expect(search).to be_empty
+        it 'raises an Argument Error' do
+          expect { search }.to raise_error(ArgumentError, 'Provide at least one search engine argument')
         end
       end
 
