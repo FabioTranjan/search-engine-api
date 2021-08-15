@@ -16,9 +16,9 @@ module EngineSearcher
         next unless result.css('h3').present?
         {
           engine: 'google',
-          title: result.css('h3').text,
+          title: result.css('h3').text.force_encoding("ISO-8859-1").encode("UTF-8"),
           link: "https://google.com#{result.css('a').first['href']}",
-          description: result.css('a').first.parent.next.next.text
+          description: result.css('a').first.parent.next.next.text.force_encoding("ISO-8859-1").encode("UTF-8")
         }
       end.compact
     end
