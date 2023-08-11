@@ -34,7 +34,7 @@ class SearchController < ApplicationController
             link: "https://google.com#{result.css('a').first['href']}",
             body: result.css('a').first.parent.next.next.text.force_encoding('ISO-8859-1').encode('UTF-8')
           }
-        end.compact
+        end
       end
     end
     render json: results.to_json

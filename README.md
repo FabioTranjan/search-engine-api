@@ -4,11 +4,11 @@
 The project is a web scrapping app to fetch text on google, bing or any other search engine, parse the HTML result and provide a JSON response as an API.
 It was built using Ruby 3.1.4 and Rails 6.1.7 as a back-end (API only) application.
 
-It implements a single API request in controller **search**, for instance the params received are:
- - engines: string array. ex: ['google', 'bing']
- - query: string. ex: 'test text'
+It implements a single API request in controller **search**, for instance the query params allowed are:
+ - __engines__: string array. ex: ['google', 'bing']
+ - __query__: string. ex: 'test text'
 
-Expected response:
+**Expected response:**
  - It should returned a parsed response in JSON format, as described below:
  ```
   {
